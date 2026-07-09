@@ -1,0 +1,678 @@
+/* ==========================================================================
+   Expert Workflow Case Study — page-scoped styles
+   Reuses tokens from assets/css/style.css (colors, spacing, type, radius)
+   ========================================================================== */
+:root {
+  --ewf-teal: #0f7a72;
+  --ewf-teal-dark: #0b5a54;
+  --ewf-teal-light: #e5f3f1;
+  --ewf-orange: #e8742c;
+  --ewf-orange-light: #fdece0;
+}
+
+/* Prevent Korean titles/body copy from breaking mid-word (orphan characters) */
+h1, h2, h3, p, dd, li {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.ewf-back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-heading3);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 90;
+}
+
+.ewf-back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.ewf-nav-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  font-size: var(--fs-label2);
+  font-weight: 700;
+  color: var(--ewf-teal-dark);
+  background-color: var(--ewf-teal-light);
+  border: 1px solid var(--ewf-teal-light);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--radius-8);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.ewf-nav-pdf::before {
+  content: "\2193";
+  font-size: var(--fs-caption1);
+}
+
+.ewf-nav-pdf:hover {
+  background-color: var(--ewf-teal);
+  border-color: var(--ewf-teal);
+  color: var(--color-text-inverse);
+}
+
+.ewf-back {
+  display: inline-block;
+  margin-bottom: var(--spacing-24);
+  font-size: var(--fs-label1);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ---- Shared section scaffolding ---- */
+.ewf-section-header {
+  max-width: 640px;
+  margin: 0 0 var(--spacing-48);
+  text-align: left;
+}
+
+.ewf-label {
+  display: inline-block;
+  font-size: var(--fs-label2);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ewf-teal);
+  margin-bottom: var(--spacing-12);
+}
+
+.ewf-title {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-title3);
+  line-height: var(--lh-title3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+  margin-bottom: var(--spacing-16);
+}
+
+.ewf-desc {
+  font-size: var(--fs-body2);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+.ewf-desc + .ewf-desc {
+  margin-top: var(--spacing-12);
+}
+
+.ewf-alt {
+  background-color: var(--color-bg-02);
+}
+
+/* ---- Hero ---- */
+.ewf-hero {
+  padding-top: var(--spacing-64);
+  padding-bottom: var(--spacing-64);
+  border-bottom: 1px solid var(--color-line-01);
+}
+
+.ewf-hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.ewf-hero-label {
+  font-size: var(--fs-label1);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ewf-teal);
+  margin-bottom: var(--spacing-20);
+}
+
+.ewf-hero-title {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-display1);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-bolder);
+  max-width: 820px;
+  margin-bottom: var(--spacing-16);
+}
+
+.ewf-hero-subtitle {
+  font-size: var(--fs-heading2);
+  font-weight: 500;
+  color: var(--ewf-teal-dark);
+  margin-bottom: var(--spacing-32);
+}
+
+.ewf-hero-desc {
+  font-size: var(--fs-body1);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+  max-width: 680px;
+  margin-bottom: var(--spacing-32);
+  white-space: pre-line;
+}
+
+.ewf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-40);
+}
+
+.ewf-tag {
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  color: var(--ewf-teal-dark);
+  background-color: var(--ewf-teal-light);
+  padding: var(--spacing-4) var(--spacing-12);
+  border-radius: var(--radius-16);
+}
+
+.ewf-hero-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-24);
+  max-width: 680px;
+  padding: var(--spacing-24) 0;
+  margin-bottom: var(--spacing-32);
+  border-top: 1px solid var(--color-line-01);
+  border-bottom: 1px solid var(--color-line-01);
+}
+
+.ewf-hero-meta dt {
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-hint);
+  margin-bottom: var(--spacing-8);
+}
+
+.ewf-hero-meta dd {
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-normal);
+}
+
+.ewf-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+}
+
+/* ---- Cards (Problem / Pattern / Impact shared 3-col grid) ---- */
+.ewf-card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-24);
+  margin-bottom: var(--spacing-32);
+}
+
+.ewf-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-01);
+  border-radius: var(--radius-12);
+  padding: var(--spacing-32);
+}
+
+.ewf-card-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-label1);
+  font-weight: 700;
+  color: var(--ewf-teal);
+  margin-bottom: var(--spacing-16);
+}
+
+.ewf-card-title {
+  font-size: var(--fs-heading3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+  margin-bottom: var(--spacing-12);
+}
+
+.ewf-card-desc {
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+/* ---- Insight / message / decision bars ---- */
+.ewf-bar {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: flex-start;
+  background-color: var(--ewf-teal-light);
+  border-left: 3px solid var(--ewf-teal);
+  border-radius: var(--radius-8);
+  padding: var(--spacing-24);
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-normal);
+}
+
+.ewf-bar strong {
+  color: var(--ewf-teal-dark);
+}
+
+.ewf-bar.is-orange {
+  background-color: var(--ewf-orange-light);
+  border-left-color: var(--ewf-orange);
+}
+
+.ewf-bar.is-orange strong {
+  color: var(--ewf-orange);
+}
+
+/* ---- Process steps (Challenge) ---- */
+.ewf-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-32);
+}
+
+.ewf-step {
+  position: relative;
+  padding-top: var(--spacing-20);
+  border-top: 2px solid var(--ewf-teal);
+}
+
+.ewf-step-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-label2);
+  font-weight: 700;
+  color: var(--ewf-teal);
+  margin-bottom: var(--spacing-8);
+}
+
+.ewf-step-label {
+  font-size: var(--fs-body3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+}
+
+.ewf-deliverables {
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+  background-color: var(--color-bg-02);
+  border-radius: var(--radius-8);
+  padding: var(--spacing-20) var(--spacing-24);
+}
+
+.ewf-deliverables strong {
+  color: var(--color-text-bolder);
+}
+
+/* ---- Before / After ---- */
+.ewf-ba-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-24);
+  margin-bottom: var(--spacing-32);
+}
+
+.ewf-ba-card {
+  border-radius: var(--radius-12);
+  padding: var(--spacing-32);
+}
+
+.ewf-ba-card.is-before {
+  background-color: var(--color-bg-02);
+  border: 1px solid var(--color-line-02);
+}
+
+.ewf-ba-card.is-after {
+  background-color: var(--ewf-teal-light);
+  border: 1px solid var(--ewf-teal);
+}
+
+.ewf-ba-eyebrow {
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-8);
+}
+
+.ewf-ba-card.is-before .ewf-ba-eyebrow {
+  color: var(--color-text-hint);
+}
+
+.ewf-ba-card.is-after .ewf-ba-eyebrow {
+  color: var(--ewf-teal-dark);
+}
+
+.ewf-ba-title {
+  font-size: var(--fs-heading2);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+  margin-bottom: var(--spacing-20);
+}
+
+.ewf-ba-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.ewf-ba-list li {
+  position: relative;
+  padding-left: var(--spacing-20);
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+.ewf-ba-list li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--color-text-hint);
+}
+
+/* ---- Lifecycle flow (Workflow) ---- */
+.ewf-lifecycle {
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-32);
+  overflow-x: auto;
+}
+
+.ewf-lifecycle-step {
+  flex: 1 1 0;
+  min-width: 96px;
+  text-align: center;
+  padding: var(--spacing-20) var(--spacing-12);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-01);
+  border-radius: var(--radius-8);
+}
+
+.ewf-lifecycle-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  color: var(--ewf-orange);
+  margin-bottom: var(--spacing-4);
+}
+
+.ewf-lifecycle-label {
+  font-size: var(--fs-body3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+}
+
+.ewf-lifecycle-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--color-line-06);
+  font-size: var(--fs-body2);
+  padding: 0 var(--spacing-4);
+}
+
+.ewf-lifecycle-track-label {
+  font-size: var(--fs-label2);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ewf-teal-dark);
+  margin-bottom: var(--spacing-12);
+}
+
+.ewf-lifecycle-step.is-highlight {
+  background-color: var(--ewf-teal);
+  border-color: var(--ewf-teal);
+}
+
+.ewf-lifecycle-step.is-highlight .ewf-lifecycle-index,
+.ewf-lifecycle-step.is-highlight .ewf-lifecycle-label {
+  color: var(--color-text-inverse);
+}
+
+.ewf-hero-highlight {
+  justify-content: center;
+  text-align: center;
+  margin-bottom: var(--spacing-32);
+  font-weight: 700;
+}
+
+/* ---- Product Strategy (4-col) ---- */
+.ewf-card-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-20);
+  margin-bottom: var(--spacing-32);
+}
+
+.ewf-card-subtitle {
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ewf-teal);
+  margin-bottom: var(--spacing-8);
+}
+
+/* ---- Pattern chips ---- */
+.ewf-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+.ewf-chip {
+  font-size: var(--fs-label2);
+  font-weight: 500;
+  color: var(--color-text-normal);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-02);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--radius-16);
+}
+
+/* ---- Implementation screens ---- */
+.ewf-screen-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-01);
+  border-radius: var(--radius-12);
+  overflow: hidden;
+}
+
+.ewf-screen-placeholder {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-02);
+  border-bottom: 1px dashed var(--color-line-03);
+  color: var(--color-text-hint);
+  font-size: var(--fs-caption1);
+  font-weight: 500;
+  text-align: center;
+  padding: var(--spacing-16);
+}
+
+.ewf-screen-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  object-position: center center;
+  background-color: var(--color-bg-02);
+  border-bottom: 1px solid var(--color-line-01);
+}
+
+.ewf-screen-body {
+  padding: var(--spacing-24);
+}
+
+/* ---- Role cards ---- */
+.ewf-role-tag {
+  display: inline-block;
+  font-size: var(--fs-caption2);
+  font-weight: 700;
+  color: var(--ewf-orange);
+  background-color: var(--ewf-orange-light);
+  padding: var(--spacing-4) var(--spacing-12);
+  border-radius: var(--radius-16);
+  margin-bottom: var(--spacing-12);
+}
+
+/* ---- Impact detail ---- */
+.ewf-impact-detail {
+  max-width: 720px;
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+.ewf-impact-detail p + p {
+  margin-top: var(--spacing-12);
+}
+
+/* ---- Key learnings ---- */
+.ewf-learning-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.ewf-learning-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--spacing-24);
+  padding: var(--spacing-32) 0;
+  border-top: 1px solid var(--color-line-01);
+}
+
+.ewf-learning-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-title3);
+  font-weight: 700;
+  color: var(--ewf-teal);
+}
+
+.ewf-learning-lead {
+  font-size: var(--fs-heading3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+  margin-bottom: var(--spacing-12);
+}
+
+.ewf-learning-body {
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+/* ---- Next case CTA ---- */
+.ewf-next {
+  text-align: center;
+  background-color: #12213b;
+}
+
+.ewf-next-title {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-title3);
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  margin-bottom: var(--spacing-32);
+}
+
+.ewf-next-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-16);
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .ewf-hero-title {
+    font-size: var(--fs-title1);
+  }
+
+  .ewf-card-grid-3,
+  .ewf-card-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ewf-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ewf-ba-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .ewf-hero {
+    padding-top: var(--spacing-48);
+  }
+
+  .ewf-hero-title {
+    font-size: var(--fs-title2);
+  }
+
+  .ewf-hero-subtitle {
+    font-size: var(--fs-heading3);
+  }
+
+  .ewf-hero-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .ewf-hero-cta {
+    flex-direction: column;
+  }
+
+  .ewf-hero-cta .btn {
+    width: 100%;
+  }
+
+  .ewf-card-grid-3,
+  .ewf-card-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .ewf-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .ewf-step {
+    padding-top: var(--spacing-12);
+  }
+
+  .ewf-lifecycle {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .ewf-lifecycle-step {
+    flex: 1 1 calc(33.333% - var(--spacing-8));
+  }
+
+  .ewf-lifecycle-arrow {
+    display: none;
+  }
+
+  .ewf-learning-card {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+}

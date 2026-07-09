@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Expert Workflow Platform — Kim Juhee</title>
+<meta name="description" content="RFP 요구사항을 역할·상태·업무 흐름 기준으로 재구조화하고 AI-assisted Prototype으로 검증한 Enterprise UX Case Study.">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/case-expert-workflow.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="logo">Kim Juhee</a>
+    <a class="ewf-nav-pdf" href="../../assets/pdf/KimJuhee_Expert_Workflow_CaseStudy.pdf" download>PDF 다운로드</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. Hero Section -->
+  <section class="ewf-hero">
+    <div class="ewf-hero-inner">
+      <a href="../../index.html#case-studies" class="ewf-back">← Back to Case Studies</a>
+      <p class="ewf-hero-label">UX Case Study · 03</p>
+      <h1 class="ewf-hero-title">Enterprise Expert Workflow Platform</h1>
+      <p class="ewf-hero-subtitle">Workflow Design &amp; Information Architecture</p>
+      <p class="ewf-hero-desc">전문가 이용자가 과제, 일정, 수당, 공지, 프로필 상태를 한 화면에서 확인할 수 있도록 설계한 업무 대시보드입니다.</p>
+      <div class="ewf-bar is-orange ewf-hero-highlight">
+        <span>반복 UI 패턴 기반<br>사용자 화면 전체 UX/UI 설계</span>
+      </div>
+      <ul class="ewf-tags">
+        <li class="ewf-tag">Enterprise Product</li>
+        <li class="ewf-tag">Workflow Design</li>
+        <li class="ewf-tag">Information Architecture</li>
+        <li class="ewf-tag">AI-assisted Prototype</li>
+      </ul>
+      <dl class="ewf-hero-meta">
+        <div>
+          <dt>Role</dt>
+          <dd>사용자 화면 전체 UX/UI 설계 · Workflow UX · Dashboard Structure · Status-based UX (RFP→IA→디자인→검수)</dd>
+        </div>
+        <div>
+          <dt>Period</dt>
+          <dd>2025.07 – 2025.12</dd>
+        </div>
+      </dl>
+      <div class="ewf-hero-cta">
+        <a href="#challenge" class="btn btn-primary">View Process</a>
+        <a href="#impact" class="btn btn-secondary">View Impact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Problem Section -->
+  <section id="problem">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">02 / Problem</p>
+        <h2 class="ewf-title">RFP 요구사항을 사용자 역할별 서비스 구조로 재정의</h2>
+      </div>
+
+      <div class="ewf-card-grid-3">
+        <article class="ewf-card">
+          <p class="ewf-card-index">01</p>
+          <h3 class="ewf-card-title">분산된 과제지원 프로세스</h3>
+          <p class="ewf-card-desc">전문가 등록부터 선정·활동·평가·증명서 발급까지 여러 시스템과 문서에 흩어진 채 운영되고 있었습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">02</p>
+          <h3 class="ewf-card-title">역할별 이용 목적 분리</h3>
+          <p class="ewf-card-desc">전문가 이용자와 운영자·관리자는 필요한 정보와 화면 구성이 다름에도, 기존 요구사항은 역할 구분 없이 기능 중심으로 정리되어 있었습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">03</p>
+          <h3 class="ewf-card-title">상태 흐름 설계 필요</h3>
+          <p class="ewf-card-desc">방대한 RFP 요구사항이 화면 목록 수준에 머물러 있어, 업무 흐름 관점의 구조화가 필요했습니다.</p>
+        </article>
+      </div>
+
+      <div class="ewf-bar">
+        <span>&#128161;</span>
+        <span><strong>핵심 인사이트.</strong> 기능 목록이 아니라 역할·상태·업무 흐름을 기준으로 서비스를 구조화해야 했습니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Challenge Section -->
+  <section id="challenge" class="ewf-alt">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">03 / Challenge</p>
+        <h2 class="ewf-title">RFP를 제품 구조로 전환해야 했습니다</h2>
+        <p class="ewf-desc">기능 목록만으로는 역할, 상태, 업무 흐름과 시스템 경계를 설명할 수 없었습니다.</p>
+      </div>
+
+      <div class="ewf-steps">
+        <div class="ewf-step">
+          <p class="ewf-step-index">01</p>
+          <p class="ewf-step-label">RFP 분석<br>Analysis</p>
+        </div>
+        <div class="ewf-step">
+          <p class="ewf-step-index">02</p>
+          <p class="ewf-step-label">요구사항 구조화<br>Structuring</p>
+        </div>
+        <div class="ewf-step">
+          <p class="ewf-step-index">03</p>
+          <p class="ewf-step-label">Workflow 설계<br>Workflow Design</p>
+        </div>
+        <div class="ewf-step">
+          <p class="ewf-step-index">04</p>
+          <p class="ewf-step-label">프로토타입<br>AI-assisted Prototype</p>
+        </div>
+        <div class="ewf-step">
+          <p class="ewf-step-index">05</p>
+          <p class="ewf-step-label">Product<br>UX Strategy</p>
+        </div>
+      </div>
+
+      <p class="ewf-deliverables"><strong>Deliverables.</strong> RFP 분석 · 발주처 회의 피드백 · 요구사항 구조화 · Role &amp; Status 정의 · Workflow 정의 · UX 설계 원칙 4가지</p>
+    </div>
+  </section>
+
+  <!-- 4. Before / After Section -->
+  <section id="before-after">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">04 / Before · After</p>
+        <h2 class="ewf-title">기능 목록을 Workflow 중심의 제품 구조로 전환</h2>
+        <p class="ewf-desc">요구사항을 화면 단위로 나열하지 않고, 역할·상태·다음 행동이 이어지는 구조로 재정의했습니다.</p>
+      </div>
+
+      <div class="ewf-ba-grid">
+        <div class="ewf-ba-card is-before">
+          <p class="ewf-ba-eyebrow">Before</p>
+          <h3 class="ewf-ba-title">기능 중심</h3>
+          <ul class="ewf-ba-list">
+            <li>RFP 항목 단위의 화면 목록</li>
+            <li>개별 기능과 부서 중심의 분리된 구조</li>
+            <li>상태 간 연결과 다음 행동이 불명확</li>
+          </ul>
+        </div>
+        <div class="ewf-ba-card is-after">
+          <p class="ewf-ba-eyebrow">After</p>
+          <h3 class="ewf-ba-title">Workflow 중심</h3>
+          <ul class="ewf-ba-list">
+            <li>Role · Status 기준의 제품 구조</li>
+            <li>Lifecycle과 업무 Workflow를 분리하여 구조화</li>
+            <li>상태별 가능한 행동과 정보 우선순위 정의</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ewf-bar is-orange">
+        <span>&#8594;</span>
+        <span>기능을 나열하는 대신, 사용자가 어떤 상태에서 무엇을 해야 하는지를 제품 구조로 정의했습니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Workflow Section -->
+  <section id="workflow" class="ewf-alt">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">05 / Workflow</p>
+        <h2 class="ewf-title">구조화된 요구사항을 두 개의 업무 축으로 분리</h2>
+        <p class="ewf-desc">전문가의 지속적인 활동 Lifecycle과 공모·심의 중심의 업무 Workflow를 분리하고,
+각 축의 상태 변화와 다음 행동을 구조화했습니다.</p>
+      </div>
+
+      <p class="ewf-lifecycle-track-label">Expert Lifecycle</p>
+      <div class="ewf-lifecycle">
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">01</p><p class="ewf-lifecycle-label">등록</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">02</p><p class="ewf-lifecycle-label">자격/정보 관리</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">03</p><p class="ewf-lifecycle-label">활동</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">04</p><p class="ewf-lifecycle-label">이력·증명</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step is-highlight"><p class="ewf-lifecycle-index">05</p><p class="ewf-lifecycle-label">지속 관리</p></div>
+      </div>
+
+      <p class="ewf-lifecycle-track-label">Program &amp; Review Workflow</p>
+      <div class="ewf-lifecycle">
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">01</p><p class="ewf-lifecycle-label">공모 생성</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">02</p><p class="ewf-lifecycle-label">신청</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">03</p><p class="ewf-lifecycle-label">접수/검토</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">04</p><p class="ewf-lifecycle-label">심의</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step"><p class="ewf-lifecycle-index">05</p><p class="ewf-lifecycle-label">선정</p></div>
+        <div class="ewf-lifecycle-arrow">→</div>
+        <div class="ewf-lifecycle-step is-highlight"><p class="ewf-lifecycle-index">06</p><p class="ewf-lifecycle-label">결과 관리</p></div>
+      </div>
+
+      <div class="ewf-bar">
+        <span>&#128161;</span>
+        <span>전문가의 지속적인 활동 Lifecycle과 공모·심의 중심의 업무 Workflow를 분리하여, 역할별 행동과 상태 변화를 구조화했습니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Product Strategy Section -->
+  <section id="strategy">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">06 / Product Strategy</p>
+        <h2 class="ewf-title">설계 원칙 4가지</h2>
+      </div>
+
+      <div class="ewf-card-grid-4">
+        <article class="ewf-card">
+          <p class="ewf-card-index">01</p>
+          <p class="ewf-card-subtitle">Role-based UX</p>
+          <h3 class="ewf-card-title">역할 기반 설계</h3>
+          <p class="ewf-card-desc">전문가 · 운영자 · 관리자 화면과 접근 권한을 분리 설계</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">02</p>
+          <p class="ewf-card-subtitle">Status-based UX</p>
+          <h3 class="ewf-card-title">상태 기반 흐름</h3>
+          <p class="ewf-card-desc">업무 단계별 상태에 따라 노출 정보와 가능한 행동이 달라지도록 화면 흐름 구성</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">03</p>
+          <p class="ewf-card-subtitle">Workflow Design</p>
+          <h3 class="ewf-card-title">업무 흐름 연결</h3>
+          <p class="ewf-card-desc">전문가 Lifecycle과 공모·심의 Workflow를 분리하고, 각 단계의 상태 변화와 다음 행동이 이어지도록 설계</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">04</p>
+          <p class="ewf-card-subtitle">Information Priority</p>
+          <h3 class="ewf-card-title">정보 우선순위</h3>
+          <p class="ewf-card-desc">과제 · 일정 · 수당 · 프로필 상태를 한 화면 대시보드에 배치</p>
+        </article>
+      </div>
+
+      <div class="ewf-bar is-orange">
+        <span>&#9998;</span>
+        <span><strong>Design Decision.</strong> 상태를 먼저 노출해 다음 행동을 즉시 판단하게 하고, 조건 충족 시에만 CTA를 활성화하며, 프로필 완료율로 누락 정보를 스스로 보완하도록 설계했습니다.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. UI Pattern & Design System Application Section -->
+  <section id="pattern" class="ewf-alt">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">07 / Design System Application</p>
+        <h2 class="ewf-title">UI Pattern &amp; Design System Application</h2>
+        <p class="ewf-hero-subtitle" style="font-size: var(--fs-heading4); margin-bottom: var(--spacing-16);">반복 UI 패턴과 Figma Variables 기반으로 상태 중심 UX를 일관되게 구현</p>
+        <p class="ewf-desc">전문가 상태, 과제 단계, 일정, 수당, 공지, 프로필 정보가 여러 화면에서 반복되기 때문에
+기능별 화면을 개별적으로 디자인하기보다 상태·역할·행동 기준의 공통 UI 패턴을 먼저 정의했습니다.</p>
+      </div>
+
+      <div class="ewf-card-grid-3">
+        <article class="ewf-card">
+          <p class="ewf-card-index">01</p>
+          <h3 class="ewf-card-title">Pattern Definition</h3>
+          <p class="ewf-card-desc">전문가 상태, 과제 단계, 일정, 수당, 공지, 프로필 정보가 여러 화면에서 반복되기 때문에 상태·역할·행동 기준의 공통 UI 패턴을 먼저 정의했습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">02</p>
+          <h3 class="ewf-card-title">Design System Application</h3>
+          <p class="ewf-card-desc">Figma Variables와 컴포넌트 기준을 활용해 색상, 상태 표현, 정보 위계, 버튼 상태, 폼 상태, 테이블 밀도, 카드 레이아웃 기준을 정리했습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">03</p>
+          <h3 class="ewf-card-title">Workflow Connection</h3>
+          <p class="ewf-card-desc">Expert Lifecycle과 Program &amp; Review Workflow에서 반복되는 상태·행동·정보 표현을 공통 UI 패턴으로 연결했습니다.</p>
+        </article>
+      </div>
+
+      <ul class="ewf-chip-list">
+        <li class="ewf-chip">Status Badge</li>
+        <li class="ewf-chip">Conditional CTA</li>
+        <li class="ewf-chip">Dashboard Card</li>
+        <li class="ewf-chip">Table Pattern</li>
+        <li class="ewf-chip">Form Pattern</li>
+        <li class="ewf-chip">Notification</li>
+        <li class="ewf-chip">Empty / Pending / Completed State</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 8. Implementation Section -->
+  <section id="implementation">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">08 / Implementation</p>
+        <h2 class="ewf-title">프로토타입에서 검증한 상태 기반 흐름을 구현 화면으로 확정</h2>
+        <p class="ewf-desc">Prototype에서 검증한 Workflow와 상태 정책을 실제 구현 화면으로 연결했습니다.</p>
+      </div>
+
+      <div class="ewf-card-grid-3">
+        <article class="ewf-screen-card">
+          <img class="ewf-screen-img" src="../../assets/images/expert-workflow/상태뱃지.png" alt="과제지원 화면 상단에 지원가능·섭외·모집중·모집종료·대기중·지원완료 상태뱃지가 동시에 표시된 스크린샷">
+          <div class="ewf-screen-body">
+            <h3 class="ewf-card-title">상태뱃지 시스템</h3>
+            <p class="ewf-card-desc">지원가능·모집중·대기중·지원완료·모집종료·중지 — 6단계 상태를 카드 상단 뱃지로 동시에 표현해 사용자가 다음 행동을 즉시 판단할 수 있도록 설계했습니다.</p>
+          </div>
+        </article>
+        <article class="ewf-screen-card">
+          <img class="ewf-screen-img" src="../../assets/images/expert-workflow/대시보드.png" alt="참여 중 과제, 섭외요청, 일정 캘린더, 공지사항을 한 화면에 배치한 홈 대시보드 스크린샷">
+          <div class="ewf-screen-body">
+            <h3 class="ewf-card-title">조건부 CTA 대시보드</h3>
+            <p class="ewf-card-desc">역할과 상태에 따라 가능한 행동만 노출되도록 CTA 우선순위를 정리했습니다.</p>
+          </div>
+        </article>
+        <article class="ewf-screen-card">
+          <img class="ewf-screen-img" src="../../assets/images/expert-workflow/프로필완료율상태.png" alt="프로필 완료율 20%, 100%, 재제출 필요 상태에 따라 버튼 활성화가 달라지는 흐름 스크린샷">
+          <div class="ewf-screen-body">
+            <h3 class="ewf-card-title">프로필 완료율 흐름</h3>
+            <p class="ewf-card-desc">누락 정보와 다음 보완 행동을 시각적으로 안내해 전문가가 스스로 상태를 관리할 수 있도록 설계했습니다.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. My Role Section -->
+  <section id="role" class="ewf-alt">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">09 / What I Actually Did</p>
+        <h2 class="ewf-title">My Role</h2>
+      </div>
+
+      <div class="ewf-card-grid-4">
+        <article class="ewf-card">
+          <p class="ewf-card-index">01</p>
+          <p class="ewf-role-tag">단독 수행</p>
+          <h3 class="ewf-card-title">Requirement Analysis</h3>
+          <p class="ewf-card-desc">RFP 14개 항목을 사용자 역할, 시스템 경계, 업무 흐름 기준으로 직접 구조화했습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">02</p>
+          <p class="ewf-role-tag">단독 수행</p>
+          <h3 class="ewf-card-title">Workflow Design &amp; IA</h3>
+          <p class="ewf-card-desc">Expert Lifecycle과 Program &amp; Review Workflow를 정의하고, 정보구조 설계 및 화면 정책을 수립했습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">03</p>
+          <p class="ewf-role-tag">단독 수행</p>
+          <h3 class="ewf-card-title">AI Prototype + UI Design</h3>
+          <p class="ewf-card-desc">Figma Make React 프로토타입으로 흐름을 검증한 뒤 전체 화면 UX/UI 설계와 구현 검수를 진행했습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">04</p>
+          <h3 class="ewf-card-title">Implementation Review</h3>
+          <p class="ewf-card-desc">개발팀과 화면 정책, 엣지케이스를 협의하며 구현을 지원했습니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Impact Section -->
+  <section id="impact">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">10 / Impact</p>
+        <h2 class="ewf-title">Workflow 기준을 세워 요구사항과 검수의 불확실성을 줄였습니다</h2>
+      </div>
+
+      <div class="ewf-card-grid-3">
+        <article class="ewf-card">
+          <p class="ewf-card-index">01</p>
+          <h3 class="ewf-card-title">Requirement Structuring</h3>
+          <p class="ewf-card-desc">RFP 14개 요구사항을 Role · Status · Workflow 중심으로 재구조화했습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">02</p>
+          <h3 class="ewf-card-title">Shared Design Language</h3>
+          <p class="ewf-card-desc">역할·상태·업무 흐름을 공통 기준으로 정의해 PM·개발·디자인 간 동일한 제품 구조를 공유했습니다.</p>
+        </article>
+        <article class="ewf-card">
+          <p class="ewf-card-index">03</p>
+          <h3 class="ewf-card-title">Enterprise Workflow Foundation</h3>
+          <p class="ewf-card-desc">전문가 Lifecycle과 공모·심의 Workflow를 분리하고, 각 단계의 상태 변화와 다음 행동이 이어지도록 설계했습니다.</p>
+        </article>
+      </div>
+
+      <div class="ewf-impact-detail">
+        <p>시스템 경계와 상태별 화면 정책을 먼저 합의한 결과, Role · Status · Workflow를 먼저 정의하여 요구사항 해석 기준을 통일할 수 있었습니다.</p>
+        <p>Prototype 사전 검증과 발주처 리뷰를 거쳐 동일한 제품 구조를 기준으로 구현을 확정했습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Key Learnings Section -->
+  <section id="learnings" class="ewf-alt">
+    <div class="section-inner">
+      <div class="ewf-section-header">
+        <p class="ewf-label">11 / Key Learnings</p>
+        <h2 class="ewf-title">무엇을 배웠는가</h2>
+      </div>
+
+      <div class="ewf-learning-list">
+        <div class="ewf-learning-card">
+          <p class="ewf-learning-index">01</p>
+          <div>
+            <p class="ewf-learning-lead">복잡한 Enterprise 서비스는 기능보다 Workflow가 먼저 설계되어야 한다.</p>
+            <p class="ewf-learning-body">14개 요구사항을 화면 단위로 나열했다면 기능 목록에 그쳤을 것입니다. 전문가의 지속적인 활동 Lifecycle과 공모·심의 Workflow를 분리하자 역할별 화면 구조와 상태별 행동 기준이 명확해졌습니다.</p>
+          </div>
+        </div>
+        <div class="ewf-learning-card">
+          <p class="ewf-learning-index">02</p>
+          <div>
+            <p class="ewf-learning-lead">역할보다 상태가 UX를 결정한다.</p>
+            <p class="ewf-learning-body">전문가 · 운영자 · 관리자라는 역할 구분만으로는 화면을 설계할 수 없었습니다. 접수 전 · 검토 중 · 심의 후 · 선정 완료처럼 업무 상태가 바뀔 때마다 보여줄 정보와 가능한 행동이 달라졌습니다.</p>
+          </div>
+        </div>
+        <div class="ewf-learning-card">
+          <p class="ewf-learning-index">03</p>
+          <div>
+            <p class="ewf-learning-lead">AI는 설계를 대신하는 것이 아니라 빠르게 검증하는 도구였다.</p>
+            <p class="ewf-learning-body">Figma Make 프로토타입은 최종 화면이 아니라 업무 흐름 가설을 검증하는 수단이었습니다. 검증 이후의 설계 판단은 다시 사람의 몫이었습니다.</p>
+          </div>
+        </div>
+        <div class="ewf-learning-card">
+          <p class="ewf-learning-index">04</p>
+          <div>
+            <p class="ewf-learning-lead">핵심 역량</p>
+            <p class="ewf-learning-body" style="margin-bottom: var(--spacing-16);">이 프로젝트가 증명한 역량:</p>
+            <ul class="ewf-chip-list">
+              <li class="ewf-chip">Problem Structuring</li>
+              <li class="ewf-chip">Workflow Design</li>
+              <li class="ewf-chip">Enterprise UX</li>
+              <li class="ewf-chip">AI-assisted Prototype</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Next Case CTA -->
+  <section class="ewf-next">
+    <div class="section-inner">
+      <h2 class="ewf-next-title">Next Case Study</h2>
+      <div class="ewf-next-links">
+        <a href="../sports-industry/index.html" class="btn btn-primary">Sports Industry Development</a>
+        <a href="../../index.html" class="btn btn-secondary" style="background: transparent; color: var(--color-text-inverse); border-color: rgba(255,255,255,0.3);">Portfolio Home</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; Kim Juhee. Senior UX / Product Designer.</p>
+</footer>
+
+<a href="#top" class="ewf-back-to-top" aria-label="맨 위로">↑</a>
+
+<script>
+  const backToTop = document.querySelector('.ewf-back-to-top');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 600);
+  });
+</script>
+</body>
+</html>

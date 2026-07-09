@@ -1,0 +1,776 @@
+/* ==========================================================================
+   Cyber Literature Plaza Case Study — page-scoped styles
+   Reuses tokens from assets/css/style.css (colors, spacing, type, radius)
+   ========================================================================== */
+:root {
+  --clp-teal: #0f7a72;
+  --clp-teal-dark: #0b5a54;
+  --clp-teal-light: #e5f3f1;
+  --clp-orange: #e8742c;
+  --clp-orange-light: #fdece0;
+}
+
+/* Prevent Korean titles/body copy from breaking mid-word (orphan characters) */
+h1, h2, h3, p, dd, li {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.clp-back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-heading3);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 90;
+}
+
+.clp-back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.site-header .header-inner {
+  gap: var(--spacing-16);
+}
+.clp-header-back {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--fs-label2);
+  font-weight: 700;
+  color: var(--color-primary);
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.clp-header-back:hover {
+  color: var(--clp-teal-dark);
+}
+.clp-nav-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  font-size: var(--fs-label2);
+  font-weight: 700;
+  color: var(--clp-teal-dark);
+  background-color: var(--clp-teal-light);
+  border: 1px solid var(--clp-teal-light);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--radius-8);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.clp-nav-pdf::before {
+  content: "\2193";
+  font-size: var(--fs-caption1);
+}
+
+.clp-nav-pdf:hover {
+  background-color: var(--clp-teal);
+  border-color: var(--clp-teal);
+  color: var(--color-text-inverse);
+}
+
+.clp-back {
+  display: inline-block;
+  margin-bottom: var(--spacing-24);
+  font-size: var(--fs-label1);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* ---- Shared section scaffolding ---- */
+.clp-section-header {
+  max-width: 680px;
+  margin: 0 0 var(--spacing-48);
+  text-align: left;
+}
+
+.clp-label {
+  display: inline-block;
+  font-size: var(--fs-label2);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--clp-teal);
+  margin-bottom: var(--spacing-12);
+}
+
+.clp-title {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-title3);
+  line-height: var(--lh-title3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+  margin-bottom: var(--spacing-16);
+}
+
+.clp-desc {
+  font-size: var(--fs-body2);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+.clp-desc + .clp-desc {
+  margin-top: var(--spacing-12);
+}
+
+.clp-alt {
+  background-color: var(--color-bg-02);
+}
+
+/* ---- Hero ---- */
+.clp-hero {
+  padding-top: var(--spacing-64);
+  padding-bottom: var(--spacing-64);
+  border-bottom: 1px solid var(--color-line-01);
+}
+
+.clp-hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.clp-hero-label {
+  font-size: var(--fs-label1);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clp-teal);
+  margin-bottom: var(--spacing-20);
+}
+
+.clp-hero-title {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-display1);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: var(--ls-display);
+  color: var(--color-text-bolder);
+  max-width: 820px;
+  margin-bottom: var(--spacing-12);
+}
+
+.clp-hero-kr {
+  font-size: var(--fs-title3);
+  font-weight: 700;
+  color: var(--color-text-subtle);
+  margin-bottom: var(--spacing-16);
+}
+
+.clp-hero-subtitle {
+  font-size: var(--fs-heading2);
+  font-weight: 500;
+  color: var(--clp-teal-dark);
+  margin-bottom: var(--spacing-32);
+  max-width: 720px;
+}
+
+.clp-hero-desc {
+  font-size: var(--fs-body1);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+  max-width: 680px;
+  margin-bottom: var(--spacing-32);
+  white-space: pre-line;
+}
+
+.clp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-40);
+}
+
+.clp-tag {
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  color: var(--clp-teal-dark);
+  background-color: var(--clp-teal-light);
+  padding: var(--spacing-4) var(--spacing-12);
+  border-radius: var(--radius-16);
+}
+
+.clp-hero-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-24);
+  max-width: 680px;
+  padding: var(--spacing-24) 0;
+  margin-bottom: var(--spacing-32);
+  border-top: 1px solid var(--color-line-01);
+  border-bottom: 1px solid var(--color-line-01);
+}
+
+.clp-hero-meta dt {
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-hint);
+  margin-bottom: var(--spacing-8);
+}
+
+.clp-hero-meta dd {
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-normal);
+}
+
+.clp-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-48);
+}
+
+.clp-hero-visual {
+  border-radius: var(--radius-12);
+  overflow: hidden;
+  border: 1px solid var(--color-line-01);
+  background-color: var(--color-bg-02);
+}
+
+.clp-hero-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.clp-hero-caption {
+  padding: var(--spacing-16) var(--spacing-24);
+  font-size: var(--fs-label2);
+  color: var(--color-text-hint);
+  border-top: 1px solid var(--color-line-01);
+}
+
+/* ---- Cards (Problem / Pattern / Impact shared 3-col grid) ---- */
+.clp-card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-24);
+  margin-bottom: var(--spacing-32);
+}
+
+.clp-card-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-20);
+  margin-bottom: var(--spacing-32);
+}
+
+.clp-card-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-20);
+  margin-bottom: var(--spacing-32);
+}
+
+.clp-card-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-20);
+  margin-bottom: var(--spacing-32);
+}
+
+.clp-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-01);
+  border-radius: var(--radius-12);
+  padding: var(--spacing-32);
+}
+
+.clp-card-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-label1);
+  font-weight: 700;
+  color: var(--clp-teal);
+  margin-bottom: var(--spacing-16);
+}
+
+.clp-card-subtitle {
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--clp-teal);
+  margin-bottom: var(--spacing-8);
+}
+
+.clp-card-title {
+  font-size: var(--fs-heading3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+  margin-bottom: var(--spacing-12);
+}
+
+.clp-card-desc {
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+/* ---- Compact audit cards (6-up) ---- */
+.clp-audit-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-01);
+  border-radius: var(--radius-12);
+  padding: var(--spacing-24);
+}
+
+.clp-audit-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  color: var(--clp-teal);
+  margin-bottom: var(--spacing-8);
+}
+
+.clp-audit-title {
+  font-size: var(--fs-body1);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+  margin-bottom: var(--spacing-8);
+}
+
+.clp-audit-desc {
+  font-size: var(--fs-label1);
+  color: var(--color-text-subtle);
+}
+
+/* ---- Insight / message / decision bars ---- */
+.clp-bar {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: flex-start;
+  background-color: var(--clp-teal-light);
+  border-left: 3px solid var(--clp-teal);
+  border-radius: var(--radius-8);
+  padding: var(--spacing-24);
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-normal);
+}
+
+.clp-bar strong {
+  color: var(--clp-teal-dark);
+}
+
+.clp-bar.is-orange {
+  background-color: var(--clp-orange-light);
+  border-left-color: var(--clp-orange);
+}
+
+.clp-bar.is-orange strong {
+  color: var(--clp-orange);
+}
+
+/* ---- Dark summary panel (Content Audit) ---- */
+.clp-dark-panel {
+  background-color: #12213b;
+  border-radius: var(--radius-12);
+  padding: var(--spacing-32);
+  margin-bottom: var(--spacing-32);
+}
+
+.clp-dark-panel-title {
+  font-size: var(--fs-label1);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--clp-teal-light);
+  margin-bottom: var(--spacing-20);
+}
+
+.clp-dark-panel-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-12) var(--spacing-32);
+}
+
+.clp-dark-panel-list li {
+  position: relative;
+  padding-left: var(--spacing-20);
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.clp-dark-panel-list li::before {
+  content: "\2013";
+  position: absolute;
+  left: 0;
+  color: var(--clp-orange);
+}
+
+/* ---- Experience flow (UX Strategy) ---- */
+.clp-flow {
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-32);
+  overflow-x: auto;
+}
+
+.clp-flow-step {
+  flex: 1 1 0;
+  min-width: 128px;
+  padding: var(--spacing-20) var(--spacing-16);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-01);
+  border-radius: var(--radius-8);
+}
+
+.clp-flow-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  color: var(--clp-orange);
+  margin-bottom: var(--spacing-8);
+}
+
+.clp-flow-label {
+  font-size: var(--fs-body3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+  margin-bottom: var(--spacing-4);
+}
+
+.clp-flow-desc {
+  font-size: var(--fs-caption1);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+.clp-flow-arrow {
+  display: flex;
+  align-items: center;
+  color: var(--color-line-06);
+  font-size: var(--fs-body2);
+  padding: 0 var(--spacing-4);
+}
+
+/* ---- Screens with real / placeholder imagery ---- */
+.clp-screen-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-01);
+  border-radius: var(--radius-12);
+  overflow: hidden;
+}
+
+.clp-screen-placeholder {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-02);
+  border-bottom: 1px dashed var(--color-line-03);
+  color: var(--color-text-hint);
+  font-size: var(--fs-caption1);
+  font-weight: 500;
+  text-align: center;
+  padding: var(--spacing-16);
+}
+
+.clp-screen-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  background-color: var(--color-bg-02);
+  border-bottom: 1px solid var(--color-line-01);
+}
+
+.clp-screen-body {
+  padding: var(--spacing-24);
+}
+
+.clp-screen-eyebrow {
+  font-size: var(--fs-caption1);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--clp-teal);
+  margin-bottom: var(--spacing-8);
+}
+
+/* ---- IA / Prototype diagram imagery ---- */
+.clp-diagram-figure {
+  border: 1px solid var(--color-line-01);
+  border-radius: var(--radius-12);
+  overflow: hidden;
+  background-color: var(--color-bg-02);
+  margin-bottom: var(--spacing-32);
+}
+
+.clp-diagram-img {
+  display: block;
+  width: 100%;
+  object-fit: contain;
+  background-color: var(--color-white);
+}
+
+.clp-diagram-caption {
+  padding: var(--spacing-16) var(--spacing-24);
+  font-size: var(--fs-label2);
+  color: var(--color-text-hint);
+  border-top: 1px solid var(--color-line-01);
+}
+
+/* ---- Prototype process steps ---- */
+.clp-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-32);
+}
+
+.clp-step {
+  position: relative;
+  padding-top: var(--spacing-20);
+  border-top: 2px solid var(--clp-teal);
+}
+
+.clp-step-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-label2);
+  font-weight: 700;
+  color: var(--clp-teal);
+  margin-bottom: var(--spacing-8);
+}
+
+.clp-step-label {
+  font-size: var(--fs-body3);
+  font-weight: 700;
+  color: var(--color-text-bolder);
+}
+
+.clp-process-track {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-40);
+  font-size: var(--fs-label1);
+  font-weight: 700;
+  color: var(--clp-teal-dark);
+}
+
+.clp-process-track span:not(.clp-process-arrow) {
+  background-color: var(--clp-teal-light);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--radius-16);
+}
+
+.clp-process-arrow {
+  color: var(--color-text-hint);
+}
+
+/* ---- Pattern / role chips ---- */
+.clp-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+.clp-chip {
+  font-size: var(--fs-label2);
+  font-weight: 500;
+  color: var(--color-text-normal);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line-02);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--radius-16);
+}
+
+.clp-role-tag {
+  display: inline-block;
+  font-size: var(--fs-caption2);
+  font-weight: 700;
+  color: var(--clp-orange);
+  background-color: var(--clp-orange-light);
+  padding: var(--spacing-4) var(--spacing-12);
+  border-radius: var(--radius-16);
+  margin-bottom: var(--spacing-12);
+}
+
+/* ---- Impact detail ---- */
+.clp-impact-detail {
+  max-width: 720px;
+  font-size: var(--fs-body3);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+.clp-impact-detail p + p {
+  margin-top: var(--spacing-12);
+}
+
+/* ---- Key learnings ---- */
+.clp-learning-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.clp-learning-card {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  align-items: baseline;
+  gap: var(--spacing-24);
+  padding: var(--spacing-32) 0;
+  border-top: 1px solid var(--color-line-01);
+}
+
+.clp-learning-index {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-title3);
+  font-weight: 700;
+  color: var(--clp-teal);
+}
+
+.clp-learning-body {
+  font-size: var(--fs-body2);
+  line-height: var(--lh-body);
+  color: var(--color-text-subtle);
+}
+
+/* ---- Next case CTA ---- */
+.clp-next {
+  text-align: center;
+  background-color: #12213b;
+}
+
+.clp-next-title {
+  font-family: var(--font-family-02);
+  font-size: var(--fs-title3);
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  margin-bottom: var(--spacing-32);
+}
+
+.clp-next-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-16);
+  flex-wrap: wrap;
+}
+
+.clp-next-links .btn-ghost {
+  background: transparent;
+  color: var(--color-text-inverse);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .clp-hero-title {
+    font-size: var(--fs-title1);
+  }
+
+  .clp-card-grid-3,
+  .clp-card-grid-4,
+  .clp-card-grid-6,
+  .clp-dark-panel-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .clp-card-grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .clp-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-12);
+  }
+
+  .clp-header-back {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .clp-hero {
+    padding-top: var(--spacing-48);
+  }
+
+  .clp-hero-title {
+    font-size: var(--fs-title2);
+  }
+
+  .clp-hero-subtitle {
+    font-size: var(--fs-heading3);
+  }
+
+  .clp-hero-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .clp-hero-cta {
+    flex-direction: column;
+  }
+
+  .clp-hero-cta .btn {
+    width: 100%;
+  }
+
+  .clp-card-grid-3,
+  .clp-card-grid-4,
+  .clp-card-grid-5,
+  .clp-card-grid-6,
+  .clp-dark-panel-list {
+    grid-template-columns: 1fr;
+  }
+
+  .clp-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .clp-step {
+    padding-top: var(--spacing-12);
+  }
+
+  .clp-flow {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .clp-flow-step {
+    flex: 1 1 calc(50% - var(--spacing-8));
+  }
+
+  .clp-flow-arrow {
+    display: none;
+  }
+
+  .clp-learning-card {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+}
+
+
+
