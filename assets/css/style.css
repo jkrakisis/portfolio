@@ -255,6 +255,65 @@ section {
 .hero-inner {
   max-width: var(--max-width);
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--spacing-48);
+  align-items: center;
+}
+
+.hero-visual {
+  width: 100%;
+}
+
+.hero-slideshow {
+  width: 100%;
+}
+
+.hero-slide-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 960 / 580;
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background-color: var(--color-bg-02);
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+}
+
+.hero-slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-16);
+}
+
+.hero-slide-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-gray-7);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-slide-dot.is-active {
+  background-color: var(--color-gray-4);
+  transform: scale(1.2);
 }
 
 .hero-eyebrow {
@@ -591,6 +650,11 @@ section {
    Responsive
    ========================================================================== */
 @media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-32);
+  }
+
   .cap-grid {
     grid-template-columns: repeat(2, 1fr);
   }
