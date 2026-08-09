@@ -429,7 +429,7 @@ section {
   background-color: var(--color-white);
   border: 1px solid var(--color-line-01);
   border-radius: var(--radius-12);
-  padding: var(--spacing-32);
+  overflow: hidden;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
@@ -439,13 +439,33 @@ section {
   transform: translateY(-2px);
 }
 
+.case-card-top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24) var(--spacing-32) 0;
+}
+
 .case-card-thumb {
-  width: calc(100% + var(--spacing-32) * 2);
-  aspect-ratio: 800 / 300;
+  flex: 0 0 72px;
+  width: 72px;
+  height: 72px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center;
-  margin: calc(var(--spacing-32) * -1) calc(var(--spacing-32) * -1) var(--spacing-24);
-  border-radius: var(--radius-12) var(--radius-12) 0 0;
+  object-position: top;
+  border-radius: var(--radius-8);
+  display: block;
+}
+
+.case-card-heading {
+  min-width: 0;
+}
+
+.case-card-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-24) var(--spacing-32) var(--spacing-32);
 }
 
 .case-card-index {
@@ -453,7 +473,7 @@ section {
   font-size: var(--fs-label1);
   font-weight: 700;
   color: var(--color-primary);
-  margin-bottom: var(--spacing-16);
+  margin-bottom: var(--spacing-4);
 }
 
 .case-card-title {
@@ -467,7 +487,6 @@ section {
   font-size: var(--fs-label1);
   font-weight: 500;
   color: var(--color-text-hint);
-  margin-bottom: var(--spacing-16);
 }
 
 .case-card-description {
@@ -698,6 +717,7 @@ section {
 
   .nav-toggle {
     display: block;
+    margin-left: auto;
   }
 
   .hero-name {
@@ -722,6 +742,14 @@ section {
 
   .case-grid {
     grid-template-columns: 1fr;
+  }
+
+  .case-card-top {
+    padding: var(--spacing-20) var(--spacing-20) 0;
+  }
+
+  .case-card-body {
+    padding: var(--spacing-20);
   }
 
   .cap-grid {
