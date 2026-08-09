@@ -441,9 +441,9 @@ section {
 
 .case-card-thumb {
   width: calc(100% + var(--spacing-32) * 2);
-  height: 180px;
+  aspect-ratio: 800 / 300;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
   margin: calc(var(--spacing-32) * -1) calc(var(--spacing-32) * -1) var(--spacing-24);
   border-radius: var(--radius-12) var(--radius-12) 0 0;
 }
