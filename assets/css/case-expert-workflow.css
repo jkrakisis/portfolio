@@ -212,6 +212,59 @@ h1, h2, h3, p, dd, li {
   gap: var(--spacing-16);
 }
 
+/* ---- Hero screen slideshow ---- */
+.ewf-hero-slideshow {
+  margin-top: var(--spacing-40);
+  margin-bottom: var(--spacing-20);
+}
+
+.ewf-hero-slide-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background-color: var(--color-bg-02);
+}
+
+.ewf-hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.ewf-hero-slide.is-active {
+  opacity: 1;
+}
+
+.ewf-hero-slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-16);
+}
+
+.ewf-hero-slide-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--color-gray-7);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.ewf-hero-slide-dot.is-active {
+  background-color: var(--ewf-teal);
+  transform: scale(1.2);
+}
+
 /* ---- Cards (Problem / Pattern / Impact shared 3-col grid) ---- */
 .ewf-card-grid-3 {
   display: grid;

@@ -26,6 +26,24 @@
       <h1 class="ewf-hero-title">Enterprise Expert Workflow Platform</h1>
       <p class="ewf-hero-subtitle">Workflow Design &amp; Information Architecture</p>
       <p class="ewf-hero-desc">전문가 이용자가 과제, 일정, 수당, 공지, 프로필 상태를 한 화면에서 확인할 수 있도록 설계한 업무 대시보드입니다.</p>
+
+      <div class="ewf-hero-slideshow" id="ewfHeroSlideshow">
+        <div class="ewf-hero-slide-frame">
+          <img src="../../assets/images/expert-workflow/과제검색목록.jpg" alt="지원가능·섭외·모집중·모집종료·대기중·지원완료 상태뱃지가 표시된 과제 검색 목록 화면" class="ewf-hero-slide is-active">
+          <img src="../../assets/images/expert-workflow/신청폼-제안서평가위원.jpg" alt="제안서 평가위원 신청 폼 화면" class="ewf-hero-slide">
+          <img src="../../assets/images/expert-workflow/신청폼-외부연구원.jpg" alt="타당성검토 외부연구원 신청 폼 화면" class="ewf-hero-slide">
+          <img src="../../assets/images/expert-workflow/신청폼-심의위원.jpg" alt="타당성검토 심의위원 신청 폼 화면" class="ewf-hero-slide">
+          <img src="../../assets/images/expert-workflow/신청폼-강사.jpg" alt="강사 신청 폼 화면" class="ewf-hero-slide">
+        </div>
+        <div class="ewf-hero-slide-dots">
+          <button class="ewf-hero-slide-dot is-active" aria-label="1번 화면 보기"></button>
+          <button class="ewf-hero-slide-dot" aria-label="2번 화면 보기"></button>
+          <button class="ewf-hero-slide-dot" aria-label="3번 화면 보기"></button>
+          <button class="ewf-hero-slide-dot" aria-label="4번 화면 보기"></button>
+          <button class="ewf-hero-slide-dot" aria-label="5번 화면 보기"></button>
+        </div>
+      </div>
+
       <div class="ewf-bar is-orange ewf-hero-highlight">
         <span>반복 UI 패턴 기반<br>사용자 화면 전체 UX/UI 설계</span>
       </div>
@@ -460,6 +478,36 @@
   window.addEventListener('scroll', () => {
     backToTop.classList.toggle('visible', window.scrollY > 600);
   });
+
+  const heroSlideshow = document.getElementById('ewfHeroSlideshow');
+  if (heroSlideshow) {
+    const slides = heroSlideshow.querySelectorAll('.ewf-hero-slide');
+    const dots = heroSlideshow.querySelectorAll('.ewf-hero-slide-dot');
+    let activeIndex = 0;
+    let timer;
+
+    const showSlide = (index) => {
+      slides[activeIndex].classList.remove('is-active');
+      dots[activeIndex].classList.remove('is-active');
+      activeIndex = index;
+      slides[activeIndex].classList.add('is-active');
+      dots[activeIndex].classList.add('is-active');
+    };
+
+    const startTimer = () => {
+      clearInterval(timer);
+      timer = setInterval(() => showSlide((activeIndex + 1) % slides.length), 4000);
+    };
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+        startTimer();
+      });
+    });
+
+    startTimer();
+  }
 </script>
 </body>
 </html>
