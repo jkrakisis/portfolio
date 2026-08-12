@@ -52,8 +52,19 @@
       </div>
 
       <figure class="clp-hero-visual">
-        <img class="clp-hero-img" src="../../assets/images/literature-platform/hero-main.png" alt="사이버문학광장 리뉴얼 메인 화면 — 노을빛 하늘 배경 위에 커버스토리, 소설, 시 큐레이션 카드가 배치된 히어로 화면">
-        <figcaption class="clp-hero-caption">문학광장 리뉴얼 메인 화면</figcaption>
+        <div class="clp-hero-slideshow" id="clpHeroSlideshow">
+          <img class="clp-hero-img clp-hero-slide is-active" src="../../assets/images/literature-platform/hero-slide-main.jpg" alt="사이버문학광장 리뉴얼 메인 화면 — 노을빛 하늘 배경 위에 커버스토리, 소설, 시 큐레이션 카드가 배치된 히어로 화면">
+          <img class="clp-hero-img clp-hero-slide" src="../../assets/images/literature-platform/hero-slide-listen.jpg" alt="Ch.문장 — 작가 낭독을 들을 수 있는 오디오 콘텐츠 화면">
+          <img class="clp-hero-img clp-hero-slide" src="../../assets/images/literature-platform/hero-slide-curation.jpg" alt="나의문장 — 취향 기반 작품·작가 큐레이션 화면">
+          <img class="clp-hero-img clp-hero-slide" src="../../assets/images/literature-platform/hero-slide-webzine.jpg" alt="월간웹진 — 정기 발행 콘텐츠와 문학집배원 화면">
+        </div>
+        <figcaption class="clp-hero-caption">읽는 글, 듣는 글, 받아보는 글을 하나의 탐색 체계로 연결한 화면들</figcaption>
+        <div class="clp-hero-slide-dots">
+          <button class="clp-hero-slide-dot is-active" aria-label="1번 화면 보기"></button>
+          <button class="clp-hero-slide-dot" aria-label="2번 화면 보기"></button>
+          <button class="clp-hero-slide-dot" aria-label="3번 화면 보기"></button>
+          <button class="clp-hero-slide-dot" aria-label="4번 화면 보기"></button>
+        </div>
       </figure>
     </div>
   </section>
@@ -552,6 +563,36 @@ Typography, Color, Card Pattern, Component 기준을 정리했습니다.</p>
   window.addEventListener('scroll', () => {
     backToTop.classList.toggle('visible', window.scrollY > 600);
   });
+
+  const clpHeroSlideshow = document.getElementById('clpHeroSlideshow');
+  if (clpHeroSlideshow) {
+    const slides = clpHeroSlideshow.querySelectorAll('.clp-hero-slide');
+    const dots = document.querySelectorAll('.clp-hero-slide-dot');
+    let activeIndex = 0;
+    let timer;
+
+    const showSlide = (index) => {
+      slides[activeIndex].classList.remove('is-active');
+      dots[activeIndex].classList.remove('is-active');
+      activeIndex = index;
+      slides[activeIndex].classList.add('is-active');
+      dots[activeIndex].classList.add('is-active');
+    };
+
+    const startTimer = () => {
+      clearInterval(timer);
+      timer = setInterval(() => showSlide((activeIndex + 1) % slides.length), 4000);
+    };
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        showSlide(index);
+        startTimer();
+      });
+    });
+
+    startTimer();
+  }
 </script>
 </body>
 </html>
