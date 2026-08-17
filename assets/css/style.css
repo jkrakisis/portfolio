@@ -294,6 +294,10 @@ section {
   opacity: 1;
 }
 
+.hero-slide--top {
+  object-position: top center;
+}
+
 .hero-slide-dots {
   display: flex;
   justify-content: center;
