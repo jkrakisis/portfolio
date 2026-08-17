@@ -24,3 +24,33 @@ if (sportsBackToTop) {
   addEventListener('scroll', toggleBackToTop, { passive: true });
   toggleBackToTop();
 }
+
+const siHeroSlideshow = document.getElementById('siHeroSlideshow');
+if (siHeroSlideshow) {
+  const slides = siHeroSlideshow.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-slide-dot');
+  let siActiveIndex = 0;
+  let siTimer;
+
+  const showSiSlide = (index) => {
+    slides[siActiveIndex].classList.remove('is-active');
+    dots[siActiveIndex].classList.remove('is-active');
+    siActiveIndex = index;
+    slides[siActiveIndex].classList.add('is-active');
+    dots[siActiveIndex].classList.add('is-active');
+  };
+
+  const startSiTimer = () => {
+    clearInterval(siTimer);
+    siTimer = setInterval(() => showSiSlide((siActiveIndex + 1) % slides.length), 4000);
+  };
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSiSlide(index);
+      startSiTimer();
+    });
+  });
+
+  startSiTimer();
+}
