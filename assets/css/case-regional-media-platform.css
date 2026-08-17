@@ -2,6 +2,12 @@
    Regional Media Platform — Case Study
    ========================================================================== */
 
+/* Prevent Korean titles/body copy from breaking mid-word (orphan characters) */
+h1, h2, h3, p, dd, li {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 .rmp-header-back {
   font-size: var(--fs-label1);
   font-weight: 700;
