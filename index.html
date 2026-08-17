@@ -307,21 +307,26 @@
   if (heroSlideshow) {
     const slides = heroSlideshow.querySelectorAll('.hero-slide');
     const dots = heroSlideshow.querySelectorAll('.hero-slide-dot');
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
     let activeIndex = 0;
     let timer;
 
     const showSlide = (index) => {
+      const nextIndex = ((index % slides.length) + slides.length) % slides.length;
       slides[activeIndex].classList.remove('is-active');
       dots[activeIndex].classList.remove('is-active');
-      activeIndex = index;
+      activeIndex = nextIndex;
       slides[activeIndex].classList.add('is-active');
       dots[activeIndex].classList.add('is-active');
     };
 
     const startTimer = () => {
+      if (isTouchDevice) return;
       clearInterval(timer);
-      timer = setInterval(() => showSlide((activeIndex + 1) % slides.length), 4000);
+      timer = setInterval(() => showSlide(activeIndex + 1), 8000);
     };
+
+    const stopTimer = () => clearInterval(timer);
 
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
@@ -329,6 +334,23 @@
         startTimer();
       });
     });
+
+    if (!isTouchDevice) {
+      heroSlideshow.addEventListener('mouseenter', stopTimer);
+      heroSlideshow.addEventListener('mouseleave', startTimer);
+    }
+
+    let touchStartX = 0;
+    heroSlideshow.addEventListener('touchstart', (event) => {
+      touchStartX = event.touches[0].clientX;
+    }, { passive: true });
+
+    heroSlideshow.addEventListener('touchend', (event) => {
+      const deltaX = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(deltaX) > 40) {
+        showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+      }
+    }, { passive: true });
 
     startTimer();
   }
