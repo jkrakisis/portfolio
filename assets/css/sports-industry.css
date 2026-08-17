@@ -52,6 +52,8 @@ body{font-family:var(--font-family-01);font-size:var(--fs-body2);line-height:var
 .hero-slide-dot.is-active{background:var(--teal);transform:scale(1.2)}
 .hero-visual-site-link{display:flex;align-items:center;justify-content:center;gap:var(--spacing-8);margin:0 var(--spacing-24) var(--spacing-24);padding:var(--spacing-12) var(--spacing-20);border-radius:var(--radius-8);color:#fff;background:var(--teal);font-size:var(--fs-label2);font-weight:700;transition:background-color .15s ease}
 .hero-visual-site-link:hover{background:var(--orange)}
+.hero-visual-note{margin:0;padding:var(--spacing-16) var(--spacing-24);border-top:1px solid var(--color-line-01);color:var(--color-text-subtle);font-size:var(--fs-label2);line-height:var(--lh-body);word-break:keep-all;overflow-wrap:break-word}
+.hero-visual-note strong{display:block;margin-bottom:var(--spacing-8);color:var(--color-text-bolder);font-size:var(--fs-label1)}
 .tint{background:var(--color-bg-02)}
 .dark-section,.framework-section,.role-section{color:var(--color-text-normal);background:var(--color-bg-02)}
 .dark-section .eyebrow,.framework-section .eyebrow,.role-section .eyebrow{color:var(--teal)}
