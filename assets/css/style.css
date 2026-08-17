@@ -445,31 +445,31 @@ section {
 
 .case-card-top {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-16);
-  padding: var(--spacing-24) var(--spacing-32) 0;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
 }
 
 .case-card-thumb {
-  flex: 0 0 140px;
-  width: 140px;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  object-position: top;
-  border-radius: var(--radius-8);
+  flex: none;
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background-color: var(--color-gray-blue-5);
+  border-radius: var(--radius-12) var(--radius-12) 0 0;
   display: block;
 }
 
 .case-card-heading {
   min-width: 0;
+  padding: var(--spacing-20) var(--spacing-24) var(--spacing-4);
 }
 
 .case-card-body {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-24) var(--spacing-32) var(--spacing-32);
+  padding: 0 var(--spacing-24) var(--spacing-24);
 }
 
 .case-card-index {
@@ -748,12 +748,16 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .case-card-top {
-    padding: var(--spacing-20) var(--spacing-20) 0;
+  .case-card-thumb {
+    height: 200px;
+  }
+
+  .case-card-heading {
+    padding: var(--spacing-16) var(--spacing-20) var(--spacing-4);
   }
 
   .case-card-body {
-    padding: var(--spacing-20);
+    padding: 0 var(--spacing-20) var(--spacing-20);
   }
 
   .cap-grid {
