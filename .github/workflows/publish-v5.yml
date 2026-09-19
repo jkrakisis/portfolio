@@ -71,7 +71,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -- v5/
-          if git diff --cached --name-only | grep -qv '^v5/'; then
+          if ! git diff --cached --quiet -- . ':!v5/'; then
             echo 'Refusing changes outside v5/' >&2
             exit 1
           fi
