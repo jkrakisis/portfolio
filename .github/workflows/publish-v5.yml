@@ -41,6 +41,7 @@ jobs:
           target = production / 'v5'
           assert target.resolve().parent == production
           html = (source / 'preview-v5.html').read_bytes()
+          resources = set()
           class Resources(HTMLParser):
               def handle_starttag(self, tag, attrs):
                   attrs = dict(attrs)
@@ -53,28 +54,39 @@ jobs:
                               file = (source / unquote(url.path)).resolve()
                               assert file.is_relative_to(source / 'assets'), 'Keep page resources in assets/: ' + value
                               assert file.is_file(), 'Missing asset: ' + value
+                              resources.add(file.relative_to(source))
           Resources().feed(html.decode('utf-8-sig'))
           # Restrict replacement to the preview directory; production assets remain untouched.
           if target.exists():
               shutil.rmtree(target)
           target.mkdir()
           shutil.copytree(source / 'assets', target / 'assets')
+          for resource in resources:
+              assert resource.suffix.lower() != '.pdf', 'Keep production PDFs managed separately'
+              dest = production / resource
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copyfile(source / resource, dest)
+          (production / 'index.html').write_bytes(html)
+          (production / '.v5-root-resources.json').write_text(json.dumps([str(p) for p in sorted(resources)]))
           (target / 'index.html').write_bytes(html)
           (target / 'preview-v5.html').write_bytes(html)
           sha = subprocess.check_output(['git', '-C', str(source), 'rev-parse', 'HEAD'], text=True).strip()
           (target / 'deployment.json').write_text(json.dumps({'sourceBranch': 'portfolio-v5-preview', 'sourceCommit': sha}) + '\n')
-      - name: Commit only v5 files
+      - name: Commit preview and promoted main page
         working-directory: production
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- v5/
-          if ! git diff --cached --quiet -- . ':!v5/'; then
-            echo 'Refusing changes outside v5/' >&2
-            exit 1
-          fi
+          python - <<'PY'
+          import json, subprocess
+          resources = json.load(open('.v5-root-resources.json'))
+          allowed = ['index.html', '.v5-root-resources.json', *resources]
+          subprocess.run(['git', 'add', '--', 'v5/', *allowed], check=True)
+          changed = subprocess.check_output(['git', 'diff', '--cached', '--name-only', '-z']).decode().split('\0')
+          assert all(not p or p.startswith('v5/') or p in allowed for p in changed)
+          PY
           if ! git diff --cached --quiet; then
             git commit -m "Deploy v5 from $(git -C ../source rev-parse --short HEAD)"
             git push origin HEAD:main
@@ -115,5 +127,8 @@ jobs:
                           with urllib.request.urlopen(urljoin(base, src), timeout=30) as r:
                               assert r.status == 200
           Images().feed(html.decode('utf-8-sig'))
-          print('Verified: ' + base)
+          with urllib.request.urlopen('https://jkrakisis.github.io/portfolio/', timeout=30) as r:
+              assert r.read() == html, 'Root page mismatch'
+          print('Verified root and preview: ' + base)
+
 
